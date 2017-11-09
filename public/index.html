@@ -1,0 +1,78 @@
+<!-- Class Example -->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+    <div id="content"></div>
+    <script type="text/javascript">
+        const data = []
+
+        class Wrapper extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    data: [],
+                    isError: null
+                }
+
+                //Make call to get data
+                if (typeof fetch !== 'undefined') {
+                    console.log('we have fetch')
+                    fetch('http://localhost:3000/messages/')
+                        .then((response) => response.json())
+                        .then((json) => {
+                            console.log('----- SETTING DATA -----')
+                            console.log(json)
+
+                            this.setState({
+                                data: json, //our JSON should now be availave in our state variable
+                                isError: false
+                            });
+                        })
+                        .catch(err => {
+                            this.setState({
+                                data: 'Uh Oh... :/',  //switch fetch line to an invalid URL to see error
+                                isError: true
+                            });
+                        })
+                }
+            }
+            render() {
+                console.log('Data: ' + this.state.data)
+                return React.createElement('div', {},
+                    React.createElement('h1', {}, 'Quotes'),
+                    React.createElement(Messages, { data: this.state.data }))
+
+            }
+
+        }
+
+
+        class Messages extends React.Component {
+            render() {
+                console.log('Props Data: ' + this.props.data)
+                let element = React.createElement('ul', {},
+                    this.props.data.map((el, index) => {
+                        return React.createElement('li', { key: index }, `"${el.text}" ~ ${el.name}`)
+                    }))
+                console.log(element)
+
+                return element
+            }
+        }
+
+        ReactDOM.render(
+            React.createElement(Wrapper),
+            document.getElementById('content')
+        )
+
+    </script>
+</body>
+
+</html>

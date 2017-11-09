@@ -1,0 +1,22 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/nodemon/bin/nodemon.js server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "errorhandler": "^1.5.0",
+    "express": "4.16.2",
+    "mongodb": "^2.2.33",
+    "morgan": "^1.9.0",
+    "nodemon": "1.12.1",
+    "path": "^0.12.7"
+  }
+}
