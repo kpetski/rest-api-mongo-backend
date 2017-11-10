@@ -1,10 +1,12 @@
-# Basics of creating a simple rest server
+# Simple REST Server connecting to React front end
+This project is putting what we learned on the front end and back end together
+
+## Server
 See server.js
 - have the server populating with two default messages
 
 ## Created a simple react to display messages in a list
-See index.html
-- the main point of this exercise was the server, this is just to show how with rest we can interact with that server from the same project.
+See jsx files in components folder
 
 ### Setup
 - This app is using mongodb, make sure to have mongo db up and running before running
@@ -13,6 +15,7 @@ See index.html
     - should be started on port `27017`
 - Run the app once mongodb is running
     - cd to rest-api
+    - run command `npm install`
     - run command `npm start`
         - when you save changes should automatically restart
     - UI URL: http://localhost:3000/
@@ -35,8 +38,4 @@ I use post man to call the CRUD operations
 - DELETE
     - http://localhost:3000/messages/[id]
     - no body required, will delete based on given id
-
-
-#### Note
-id is just the index of the array and can change if one is deleted, in the future would update this to be something that wouldn't change
 
