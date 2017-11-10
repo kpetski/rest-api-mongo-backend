@@ -14,7 +14,7 @@ See jsx files in components folder
     - start database by running the command `mongod`
     - should be started on port `27017`
 - Run the app once mongodb is running
-    - cd to rest-api
+    - cd to rest-api-mongo-backend
     - run command `npm install`
     - run command `npm start`
         - when you save changes should automatically restart
